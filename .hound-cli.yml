@@ -1,0 +1,6 @@
+ruby:
+  enabled: true
+  config_file: .rubocop.yml
+haml:
+  enabled: true
+  config_file: .haml-lint.yml
