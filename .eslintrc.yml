@@ -26,4 +26,4 @@ env:
   jquery: true
 extends:
   - 'eslint:recommended'
-  - standard
+  - 'standard'
