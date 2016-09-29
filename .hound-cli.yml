@@ -2,7 +2,7 @@ ruby:
   enabled: true
   config_file: .rubocop.yml
 haml:
-  enabled: true
+  enabled: false
   config_file: .haml-lint.yml
 eslint:
   enabled: true
