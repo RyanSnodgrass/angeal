@@ -1,7 +1,11 @@
 !!!
-%html
+%html{ lang: 'en' }
   %head
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+    %meta{ charset: 'utf-8' }
+    %meta{ content: 'IE=edge', 'http-equiv' => 'X-UA-Compatible' }
+    %meta{ content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport' }
+      / The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
     %title Angeal
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
