@@ -192,6 +192,7 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
+    - 'db/migrate/*'
 
 Style/DotPosition:
   Description: 'Checks the position of the dot in multi-line method calls.'
