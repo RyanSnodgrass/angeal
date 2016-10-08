@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'ImportGoalSheetJob class' do
+RSpec.describe ImportGoalSheetJob do
   it 'does stuff' do
-    
+
   end
 end
