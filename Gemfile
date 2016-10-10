@@ -22,6 +22,9 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 # Use haml for html templating
 gem 'haml-rails'
 
+# use roo for excel file library
+gem 'roo', '~> 2.4.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster.
