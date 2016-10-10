@@ -11,4 +11,5 @@ RSpec.describe ImportGoalSheetJob do
     end
     expect(Vision.count).to eq(1)
   end
+  it ''
 end
