@@ -1,2 +1,0 @@
-class RangeGoal < ApplicationRecord
-end

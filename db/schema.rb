@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008035935) do
+ActiveRecord::Schema.define(version: 20161010223125) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'range_goals', force: :cascade do |t|
-    t.string 'title'
-    t.string 'who'
-    t.string 'when'
-    t.string 'range'
-    t.text   'what'
+  create_table "goals", force: :cascade do |t|
+    t.string "title"
+    t.string "who"
+    t.string "when"
+    t.string "range"
+    t.text   "what"
   end
 
-  create_table 'visions', force: :cascade do |t|
-    t.string 'blurb'
+  create_table "visions", force: :cascade do |t|
+    t.string "blurb"
   end
 
 end
