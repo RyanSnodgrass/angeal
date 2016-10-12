@@ -7,10 +7,9 @@ class ImportGoalSheetJob
   end
 
   def vision_sheet_input
-    @vision_sheet = @xlsx.sheet('Vision')
-    @vision_sheet.each(blurb: 'blurb') do |hash|
-      next if hash[:blurb] == 'blurb'
-      Vision.create(blurb: hash[:blurb])
+    @vision_sheet = @xlsx.sheet('Vision').parse(header_search: [])
+    @vision_sheet.drop(1).each do |row|
+      Vision.create(blurb: row['blurb'])
     end
   end
 
@@ -20,15 +19,20 @@ class ImportGoalSheetJob
 
   def goal_sheet_input
     goal_ranges.each do |range|
-      @goal_sheet = @xlsx.sheet(range)
-      @goal_sheet.each(t: 'title', wha: 'what', who: 'who', whe: 'when') do |w|
-        next if w[:t] == 'title'
-        Goal.create(title: w[:t],
-                         what: w[:wha],
-                         who: w[:who],
-                         when: w[:whe],
-                         range: range)
-      end
+      @range = range
+      @goal_sheet = @xlsx.sheet(@range).parse(header_search: [])
+      create_goals
+      # vision_to_goals
+    end
+  end
+
+  def create_goals
+    @goal_sheet.drop(1).each do |row|
+      @current_goal_in_row = Goal.create(title: row['title'],
+                                         what: row['what'],
+                                         who: row['who'],
+                                       when: row['when'],
+                                         range: @range)
     end
   end
 end
