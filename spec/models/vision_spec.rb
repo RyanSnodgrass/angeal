@@ -6,6 +6,6 @@ RSpec.describe Vision, type: :model do
     g = Goal.create(title: 'g')
     v.goals << g
     expect(v.goals).to include(g)
-    expect{ g.vision }.to raise_error
+    expect(g.vision).to eq(v)
   end
 end

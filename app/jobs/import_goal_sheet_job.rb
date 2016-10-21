@@ -9,7 +9,7 @@ class ImportGoalSheetJob
   def vision_sheet_input
     @vision_sheet = @xlsx.sheet('Vision').parse(header_search: [])
     @vision_sheet.drop(1).each do |row|
-      Vision.create(blurb: row['blurb'])
+      @vision = Vision.create(blurb: row['blurb'])
     end
   end
 
@@ -22,7 +22,6 @@ class ImportGoalSheetJob
       @range = range
       @goal_sheet = @xlsx.sheet(@range).parse(header_search: [])
       create_goals
-      # vision_to_goals
     end
   end
 
@@ -31,8 +30,13 @@ class ImportGoalSheetJob
       @current_goal_in_row = Goal.create(title: row['title'],
                                          what: row['what'],
                                          who: row['who'],
-                                       when: row['when'],
+                                         when: row['when'],
                                          range: @range)
+      vision_to_goals
     end
+  end
+
+  def vision_to_goals
+    @vision.goals << @current_goal_in_row
   end
 end
