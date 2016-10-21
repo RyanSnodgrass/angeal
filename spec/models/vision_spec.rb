@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Vision, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'has a one to many relationship with goals' do
+    v = Vision.create(blurb: 'b')
+    g = Goal.create(title: 'g')
+    v.goals << g
+    expect(v.goals).to include(g)
+    expect{ g.vision }.to raise_error
+  end
 end
