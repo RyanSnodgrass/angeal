@@ -8,7 +8,6 @@ AllCops:
     - config/initializers/*
     - config/environments/*
     - bin/spring
-    - test/*
     - spec/spec_helper.rb
     - spec/rails_helper.rb
 
@@ -995,7 +994,7 @@ Metrics/LineLength:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#80-character-limits'
   Enabled: true
   Exclude:
-    - spec/*
+    - spec/**/*
 
 Metrics/MethodLength:
   Description: 'Avoid methods longer than 10 lines of code.'
