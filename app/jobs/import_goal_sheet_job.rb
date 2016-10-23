@@ -32,11 +32,16 @@ class ImportGoalSheetJob
                                          who: row['who'],
                                          when: row['when'],
                                          range: @range)
-      vision_to_goals
+      next vision_to_goals if @range == 'Long'
+      goals_to_goals
     end
   end
 
   def vision_to_goals
     @vision.goals << @current_goal_in_row
+  end
+
+  def goals_to_goals
+    
   end
 end
