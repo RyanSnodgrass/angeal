@@ -27,14 +27,19 @@ class ImportGoalSheetJob
 
   def create_goals
     @goal_sheet.drop(1).each do |row|
-      @current_goal_in_row = Goal.create(title: row['title'],
-                                         what: row['what'],
-                                         who: row['who'],
-                                         when: row['when'],
-                                         range: @range)
+      @row = row
+      create_goal
       next vision_to_goals if @range == 'Long'
       goals_to_goals
     end
+  end
+
+  def create_goal
+    @current_goal_in_row = Goal.create(title: @row['title'],
+                                       what: @row['what'],
+                                       who: @row['who'],
+                                       when: @row['when'],
+                                       range: @range)
   end
 
   def vision_to_goals
@@ -42,6 +47,7 @@ class ImportGoalSheetJob
   end
 
   def goals_to_goals
-    
+    @higher_goal = Goal.find_by(title: @row['Higher_goal_title'])
+    # @current_goal_in_row.goals << @higher_goal
   end
 end
