@@ -48,6 +48,6 @@ class ImportGoalSheetJob
 
   def goals_to_goals
     @higher_goal = Goal.find_by(title: @row['Higher_goal_title'])
-    # @current_goal_in_row.goals << @higher_goal
+    @higher_goal.children << @current_goal_in_row
   end
 end

@@ -18,8 +18,11 @@ RSpec.describe ImportGoalSheetJob do
     end
   end
 
-  xit 'creates association between goals and other goals' do
+  it 'creates association between goals and other goals' do
     ImportGoalSheetJob.new.perform('spec/fixtures/dummy_sheet.xlsx')
-    expect(Goal.find_by(title: 'aliquam', range: 2).goals.count).to eq(2)
+    g = Goal.find_by(title: 'voluptatem accusantium', range: 'Medium')
+    expect(g.parent.title).to eq('eiusmod tempor incididunt')
+    g2 = Goal.find_by(title: 'voluptas nulla pariatur', range: 'Long')
+    expect(g2.children.count).to eq(2)
   end
 end
