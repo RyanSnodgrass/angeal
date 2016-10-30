@@ -22,6 +22,9 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 # Use haml for html templating
 gem 'haml-rails'
 
+# use roo for excel file library
+gem 'roo', '~> 2.4.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster.
@@ -38,6 +41,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Rspec testing framework
+  gem 'rspec-rails', '~> 3.5'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   # console
   gem 'byebug', platform: :mri
@@ -52,6 +58,11 @@ group :development do
   # background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  # Clean database after each test run
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
