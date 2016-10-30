@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021020122) do
+ActiveRecord::Schema.define(version: 20161023220103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20161021020122) do
     t.string  "range"
     t.text    "what"
     t.integer "vision_id"
+    t.integer "parent_id"
+    t.index ["parent_id"], name: "index_goals_on_parent_id", using: :btree
     t.index ["vision_id"], name: "index_goals_on_vision_id", using: :btree
   end
 
