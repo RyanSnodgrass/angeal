@@ -1,8 +1,7 @@
 rules:
   no-unused-vars:
     - error
-    -
-      vars: local
+    - vars: local
   comma-spacing: error
   no-const-assign: error
   # array-bracket-spacing: error
@@ -15,8 +14,7 @@ rules:
     - 2
   dot-notation:
     - error
-    -
-      allowPattern: ^[a-z]+(_[a-z]+)+$
+    - allowPattern: ^[a-z]+(_[a-z]+)+$
   comma-dangle:
     - error
     - always
