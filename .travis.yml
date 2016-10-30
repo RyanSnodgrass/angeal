@@ -1,4 +1,8 @@
 language: ruby
 rvm:
   - 2.3.1
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database travis_ci_test;' -U angeal
 script: bundle exec rspec
