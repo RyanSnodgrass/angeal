@@ -63,6 +63,9 @@ end
 group :test do
   # Clean database after each test run
   gem 'database_cleaner'
+
+  # Use coveralls as a test coverage checker
+  gem 'coveralls', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
