@@ -1,0 +1,3 @@
+excludes:
+  - config/puma.rb
+  - spec/rails_helper.rb
