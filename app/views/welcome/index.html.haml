@@ -1,25 +1,18 @@
 %nav.navbar.navbar-static-top.navbar-dark.bg-inverse
-  %a.navbar-brand{ href: '#' } Project name
-  %ul.nav.navbar-nav
-    %li.nav-item.active
-      %a.nav-link{ href:  '#' }
-        Home
-        %span.sr-only (current)
-    %li.nav-item
-      %a.nav-link{ href:  '#' } About
-    %li.nav-item
-      %a.nav-link{ href:  '#' } Contact
-/ Main jumbotron for a primary marketing message or call to action
-.jumbotron
-  .container
-    %h1.display-3 Hello, world!
-    %p
-      :plain
-        This is a template for a simple marketing or informational website. It includes a large callout called a
-        jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
-    %p
-      %a.btn.btn-primary.btn-lg{ href:  '#', role:  'button' } Learn more »
+  %a.navbar-brand{ href: '#' } Angeal, a Stragic Planning Breakdown
 .container
+  .row.flex-items-md-center
+    .col-md-8
+      %h3
+        Start by creating the file in Qualtrics. Then drop it here and we'll
+        transmogrify it into the database. Magic.
+
+      = form_tag('/import/import', multipart: true) do
+        .form-group
+          = file_field_tag 'file', class: 'form-control-file'
+        = submit_tag 'SUBMIT', class: 'btn btn-primary'
+
+// .container
   / Example row of columns
   .row
     .col-md-4
@@ -49,6 +42,7 @@
           massa justo sit amet risus.
       %p
         %a.btn.btn-secondary{ href:  '#', role:  'button' } View details »
+.container
   %hr
   %footer
     %p © Company 2016

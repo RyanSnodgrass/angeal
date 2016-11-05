@@ -1,4 +1,5 @@
 # Default application configuration that all configurations inherit from.
+exclude: app/assets/stylesheets/_variables.scss
 
 scss_files: "**/*.scss"
 plugin_directories: ['.scss-linters']
