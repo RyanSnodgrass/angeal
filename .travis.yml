@@ -4,6 +4,7 @@ rvm:
 services:
   - postgresql
 before_script:
+  - cp config/travis_secrets.yml config/secrets.yml
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
 script: bundle exec rspec
