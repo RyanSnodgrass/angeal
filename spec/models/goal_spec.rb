@@ -26,4 +26,12 @@ RSpec.describe Goal, type: :model do
     goal = Goal.find_by(title: 'g')
     expect(goal.children.first.title).to eq('g2')
   end
+
+  it 'has a helper method for checking for existing children' do
+    g = Goal.create(title: 'g')
+    g2 = Goal.create(title: 'g2')
+    g.children << g2
+    expect(g.children?).to eq(true)
+    expect(g2.children?).to eq(false)
+  end
 end
