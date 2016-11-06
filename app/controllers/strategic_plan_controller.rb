@@ -2,6 +2,6 @@
 class StrategicPlanController < ApplicationController
   def index
     @vision = Vision.first
-    @goals = Goal.all
+    # @goals = Goal.all
   end
 end
