@@ -1,0 +1,7 @@
+.container
+  .row.flex-items-md-center
+    .col-md-8
+  %h1= @vision.blurb
+  %ul
+    - @goals.each do |goal|
+      %li= goal.title
