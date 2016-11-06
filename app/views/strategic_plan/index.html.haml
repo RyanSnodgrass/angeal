@@ -1,7 +1,11 @@
 .container
   .row.flex-items-md-center
     .col-md-8
-  %h1= @vision.blurb
-  %ul
-    - @goals.each do |goal|
-      %li= goal.title
+      %h1= @vision.blurb
+      %ul
+        - @vision.goals.each do |goal|
+          %li= goal.title
+          - if goal.children?
+            %ul
+              - goal.children.each do |gc|
+                %li= gc.title
