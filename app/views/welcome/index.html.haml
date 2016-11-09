@@ -4,8 +4,8 @@
       .col-sm-12
         %h1 Start Here
         %p.lead
-          Start by creating the file in Qualtrics. Then drop it here and we'll
-          transmogrify it into the database. Magic.
+          Start by creating the excel file in Qualtrics. Then drop it here and
+          we'll transmogrify it into the database. Magic.
 
           = form_tag('/import/import', multipart: true) do
             .form-group
@@ -20,8 +20,8 @@
   .row
     .col-md-8
       %p
-        This is how the tables should look in the excel file and some dummy
-        data. Each sheet should be labeled by the heading.
+        This is how the sheets should look coming from Qualtrics. The file needs
+        to be an excel file and the headings are case sensitive.
       %p Column order and sheet order doesn't matter.
 
   .row
