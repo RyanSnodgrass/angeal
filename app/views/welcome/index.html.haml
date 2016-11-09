@@ -11,17 +11,28 @@
             .form-group
               = file_field_tag 'file', class: 'form-control-file'
             = submit_tag 'SUBMIT', class: 'btn btn-primary'
+        = link_to 'Delete All',
+                  strategic_plan_delete_path,
+                  data: { confirm: 'Are you sure?' },
+                  method: :delete,
+                  class: 'btn btn-danger'
+
+
 %br
 .container
   .row
-    .col-md-8
-      %h1 Table Format
+    .col-sm-12
+      %h1 More Info
+      %hr
 .container
   .row
     .col-md-8
+      %h2 Sheet Format
       %p
         This is how the sheets should look coming from Qualtrics. The file needs
-        to be an excel file and the headings are case sensitive.
+        to be an excel file and the column headings are case sensitive. Be
+        careful with extra whitespace in the headings.
+
       %p Column order and sheet order doesn't matter.
 
   .row
