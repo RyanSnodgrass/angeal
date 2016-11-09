@@ -1,0 +1,15 @@
+.container
+  .row.flex-items-md-center
+    .col-md-8
+      %h1= @vision.blurb
+      %ul
+        - @vision.goals.each do |long_goal|
+          %li= long_goal.title
+          - if long_goal.children?
+            %ul
+              - long_goal.children.each do |med_goal|
+                %li= med_goal.title
+                - if med_goal.children?
+                  %ul
+                    - med_goal.children.each do |short_goal|
+                      %li= short_goal.title

@@ -1,48 +1,133 @@
-%nav.navbar.navbar-static-top.navbar-dark.bg-inverse
-  %a.navbar-brand{ href: '#' } Angeal, a Stragic Planning Breakdown
+.jumbotron
+  .container
+    .row
+      .col-sm-12
+        - if Vision.exists? || Goal.exists?
+          %h1 Thanks For Uploading Your File
+          %p.lead
+            You can click this link to see the relationship between visions
+            and goals as a nested list
+          = link_to 'Nested List View',
+                    strategic_plan_index_path,
+                    class: 'btn btn-primary'
+          %br
+          %br
+          %p.lead
+            Or, if you want to start over, you can delete everything and upload
+            another file.
+          = link_to 'Delete All',
+            strategic_plan_delete_path,
+            data: { confirm: 'Are you sure?' },
+            method: :delete,
+            class: 'btn btn-danger'
+          %br
+          Just a heads up, there are currently #{Goal.count} Goals and
+          #{Vision.count} Vision in the database
+        - else
+          %h1 Start Here
+          %p.lead
+            Start by creating the excel file in Qualtrics. Then drop it here and
+            we'll transmogrify it into the database. Magic.
+
+            = form_tag('/import/import', multipart: true) do
+              .form-group
+                = file_field_tag 'file', class: 'form-control-file'
+              = submit_tag 'SUBMIT', class: 'btn btn-primary'
+
+%br
 .container
-  .row.flex-items-md-center
-    .col-md-8
-      %h3
-        Start by creating the file in Qualtrics. Then drop it here and we'll
-        transmogrify it into the database. Magic.
-
-      = form_tag('/import/import', multipart: true) do
-        .form-group
-          = file_field_tag 'file', class: 'form-control-file'
-        = submit_tag 'SUBMIT', class: 'btn btn-primary'
-
-// .container
-  / Example row of columns
   .row
-    .col-md-4
-      %h2 Heading
-      %p
-        :plain
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-          condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-          Donec sed odio dui.
-      %p
-        %a.btn.btn-secondary{ href:  '#', role:  'button' } View details »
-    .col-md-4
-      %h2 Heading
-      %p
-        :plain
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-          condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod.
-          Donec sed odio dui.
-      %p
-        %a.btn.btn-secondary{ href:  '#', role:  'button' } View details »
-    .col-md-4
-      %h2 Heading
-      %p
-        :plain
-          Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta
-          felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-          massa justo sit amet risus.
-      %p
-        %a.btn.btn-secondary{ href:  '#', role:  'button' } View details »
+    .col-sm-12
+      %h1 More Info
+      %hr
 .container
-  %hr
-  %footer
-    %p © Company 2016
+  .row
+    .col-md-8
+      %h2 Sheet Format
+      %p
+        This is how the sheets should look coming from Qualtrics. The file needs
+        to be an excel file and the column headings are case sensitive. Be
+        careful with extra whitespace in the headings.
+
+      %p Column order and sheet order doesn't matter.
+
+  .row
+    .col-md-8
+      .card
+        .card-block
+          %h4.card-title Vision
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th blurb
+            %tbody
+              %tr
+                %td End Poverty
+  .row
+    .col-md-8
+      .card
+        .card-block
+          %h4.card-title Long
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th title
+                %th what
+                %th when
+                %th who
+                %th vision
+            %tbody
+              %tr
+                %td Fix Education
+                %td Duis aute irure dolor in reprehenderit in voluptate velit esse
+                %td Tomorrow
+                %td Doloremque Laudantium
+                %td End Poverty
+              %tr
+                %td Lower Homelessness
+                %td Excepteur sint occaecat cupidatat non proiden
+                %td Next Week
+                %td Et Harum Quidem
+                %td End Poverty
+
+  .row
+    .col-md-8
+      .card
+        .card-block
+          %h4.card-title Medium
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th title
+                %th what
+                %th when
+                %th who
+                %th Higher_goal_title
+            %tbody
+              %tr
+                %td Raise Teacher Salary
+                %td Enim ad minima veniam, quis nostrum exercitationem
+                %td Today
+                %td Natus Erranium
+                %td Fix Education
+
+  .row
+    .col-md-8
+      .card
+        .card-block
+          %h4.card-title Short
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th title
+                %th what
+                %th when
+                %th who
+                %th Higher_goal_title
+            %tbody
+              %tr
+                %td Address Mental Illness
+                %td Excepturi sint occaecati cupiditate non provident
+                %td 3 - 5 years
+                %td Similique Sunt
+                %td Lower Homelessness

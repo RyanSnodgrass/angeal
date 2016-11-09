@@ -11,4 +11,10 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %nav.navbar.navbar-static-top.navbar-dark.bg-inverse
+      %a.navbar-brand{ href: '/' } Angeal, a Stragic Planning Breakdown
     = yield
+    .container
+      %hr
+      %footer
+        %p © Company 2016
