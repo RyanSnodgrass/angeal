@@ -3,7 +3,7 @@
     .row
       .col-sm-12
         - if Vision.exists? || Goal.exists?
-          %h1 Thanks For Uploading Your File
+          %h1 Thanks For Uploading Your File, delete button 1
           %p.lead
             You can click this link to see the relationship between visions
             and goals as a nested list
@@ -17,7 +17,6 @@
             another file.
           = link_to 'Delete All',
             strategic_plan_delete_path,
-            data: { confirm: 'Are you sure?' },
             method: :delete,
             class: 'btn btn-danger'
           %br
