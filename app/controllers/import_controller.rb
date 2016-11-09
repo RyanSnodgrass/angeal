@@ -4,6 +4,6 @@ class ImportController < ApplicationController
   # Might have to switch to async perform later if input files are big
   def import
     ImportGoalSheetJob.new.perform(params[:file].path)
-    render inline: 'Done<br><br><a href="/">Back to home</a>'
+    render 'welcome/index'
   end
 end

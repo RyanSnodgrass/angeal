@@ -2,21 +2,32 @@
   .container
     .row
       .col-sm-12
-        %h1 Start Here
-        %p.lead
-          Start by creating the excel file in Qualtrics. Then drop it here and
-          we'll transmogrify it into the database. Magic.
+        - if Vision.exists? || Goal.exists?
+          %h1 Thanks For Uploading your File
+          %p.lead You can click this link to go see the tree
+          = link_to 'Tree View',
+                    strategic_plan_index_path,
+                    class: 'btn btn-primary'
+          %p.lead
+            Or, if you want to start over, you can delete everything, and upload
+            another file.
+          = link_to 'Delete All',
+            strategic_plan_delete_path,
+            data: { confirm: 'Are you sure?' },
+            method: :delete,
+            class: 'btn btn-danger'
+          %br
+          There are currently #{Goal.count} Goals in the database
+        - else
+          %h1 Start Here
+          %p.lead
+            Start by creating the excel file in Qualtrics. Then drop it here and
+            we'll transmogrify it into the database. Magic.
 
-          = form_tag('/import/import', multipart: true) do
-            .form-group
-              = file_field_tag 'file', class: 'form-control-file'
-            = submit_tag 'SUBMIT', class: 'btn btn-primary'
-        = link_to 'Delete All',
-                  strategic_plan_delete_path,
-                  data: { confirm: 'Are you sure?' },
-                  method: :delete,
-                  class: 'btn btn-danger'
-
+            = form_tag('/import/import', multipart: true) do
+              .form-group
+                = file_field_tag 'file', class: 'form-control-file'
+              = submit_tag 'SUBMIT', class: 'btn btn-primary'
 
 %br
 .container
