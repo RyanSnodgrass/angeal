@@ -5,6 +5,7 @@ class StrategicPlanController < ApplicationController
     # @goals = Goal.all
   end
 
+  # Deletes all Visions and Goals, then redirects back to root. Meant as restart
   def delete
     Vision.destroy_all
     Goal.destroy_all
