@@ -22,6 +22,10 @@ gem 'bootstrap', '~> 4.0.0.alpha4'
 # Use haml for html templating
 gem 'haml-rails'
 
+# Efficiently making an absolutely positioned element stay next to another
+# element on the page
+gem 'tether-rails'
+
 # use roo for excel file library
 gem 'roo', '~> 2.4.0'
 
