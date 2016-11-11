@@ -15,10 +15,11 @@
           %p.lead
             Or, if you want to start over, you can delete everything and upload
             another file.
+          - d_message = 'Are you sure? This will delete all Goals and Visions'
           = link_to 'Delete All',
             strategic_plan_delete_path,
-            data: { confirm: 'Are you sure?' },
             method: :delete,
+            data: { confirm: d_message },
             class: 'btn btn-danger'
           %br
           Just a heads up, there are currently #{Goal.count} Goals and
