@@ -3,6 +3,6 @@ json.chart do
 end
 json.nodeStructure do
   json.text do
-    json.name 'Parent Node'
+    json.name @vision.blurb
   end
 end
