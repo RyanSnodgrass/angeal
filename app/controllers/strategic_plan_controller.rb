@@ -1,8 +1,13 @@
 # methods for the general use of the app
 class StrategicPlanController < ApplicationController
   def index
-    @vision = Vision.first
+    # @vision = Vision.first
     # @goals = Goal.all
+  end
+
+  # Renders json for tree specifc to Treant format
+  def tree
+    @vision = Vision.first
   end
 
   # Deletes all Visions and Goals, then redirects back to root. Meant as restart
