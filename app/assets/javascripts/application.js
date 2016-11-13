@@ -14,5 +14,7 @@
 //= require tether
 //= require bootstrap
 //= require jquery_ujs
+//= require raphael
+//= require Treant
 //= require turbolinks
 //= require_tree .
