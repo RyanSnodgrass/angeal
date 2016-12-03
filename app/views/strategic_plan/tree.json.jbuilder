@@ -5,6 +5,15 @@ json.nodeStructure do
     if long_goal.range == 'Medium'
       json.pseudo true
       json.children [ { 'text' => { 'name' => long_goal.title } } ]
+    elsif long_goal.range == 'Short'
+      json.pseudo true
+      json.children [
+        { 'psuedo' => true,
+          'children' => [
+            { 'text' => { 'name' => long_goal.title } }
+          ]
+        }
+      ]
     else
       json.text { json.name long_goal.title }
       # json.childrenDropLevel
