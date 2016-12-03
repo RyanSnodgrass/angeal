@@ -22,9 +22,14 @@ json.nodeStructure do
       json.text { json.name long_goal.title }
       # json.childrenDropLevel
       json.children long_goal.children do |med_goal|
-        json.text { json.name med_goal.title }
-        json.children med_goal.children do |short_goal|
-          json.text { json.name short_goal.title }
+        if med_goal.range == 'Short'
+          json.pseudo true
+          json.children [ 'text' => { 'name' => med_goal.title } ]
+        else
+          json.text { json.name med_goal.title }
+          json.children med_goal.children do |short_goal|
+            json.text { json.name short_goal.title }
+          end
         end
       end
     end
