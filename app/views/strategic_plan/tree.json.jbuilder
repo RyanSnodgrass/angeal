@@ -23,6 +23,9 @@ json.nodeStructure do
       # json.childrenDropLevel
       json.children long_goal.children do |med_goal|
         json.text { json.name med_goal.title }
+        json.children med_goal.children do |short_goal|
+          json.text { json.name short_goal.title }
+        end
       end
     end
   end
