@@ -10,7 +10,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  %body{ class: "#{controller_name} #{action_name}" }
     %nav.navbar.navbar-static-top.navbar-dark.bg-inverse
       %a.navbar-brand{ href: '/' } Angeal, a Stragic Planning Breakdown
     = yield
