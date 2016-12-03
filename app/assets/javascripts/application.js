@@ -16,5 +16,5 @@
 //= require jquery_ujs
 //= require raphael
 //= require Treant
-//= require turbolinks
+//= require jquery-readyselector
 //= require_tree .
